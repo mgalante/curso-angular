@@ -57,4 +57,18 @@ minLengh10("Hola") // false;
 minLengh10("Hola como estas") // true;
 
 
+// EJERCICIO 3
+// Implenetar el metodo filiter utilizado .push(), for of, if
+const array = [1, 2, 4, 4];
+
+filter(/* TODO */) {
+    /* TODO */
+}
+
+const result = filter(array, x => x === 4);
+// RESULT deberia dar [4, 4]
+
+
+
+
 ``` 
