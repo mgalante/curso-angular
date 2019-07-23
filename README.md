@@ -76,4 +76,6 @@ const result = filter(array, x => x === 4);
 name, price, expirationDate, ingredients (array de strings)
 1. Duplicar el precio de todos los productos y pasar a mayusuculas el nombre
 1. Agregar un nuevo producto
+1. Filtrar los productos que tengan mas de 2 ingredientes
+
 
