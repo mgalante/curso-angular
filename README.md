@@ -58,10 +58,10 @@ minLengh10("Hola como estas") // true;
 
 
 // EJERCICIO 3
-// Implenetar el metodo filiter utilizado .push(), for of, if
+// Implenetar una funcion filter utilizado .push(), for of, if
 const array = [1, 2, 4, 4];
 
-filter(/* TODO */) {
+function filter(/* TODO */) {
     /* TODO */
 }
 
