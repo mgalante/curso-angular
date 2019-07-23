@@ -1,0 +1,60 @@
+# Resumen clase 1
+
+```javascript
+const nums = [10,1,2,345];
+const dobles = nums.map(num => num*2);
+
+// Documentacion js de buena calidad
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce
+
+// Para saber si una caracteristica existe en el browser
+//https://caniuse.com/#search=reduce
+
+// EJERCICIOS 
+// 1) Programar         
+const dobles2 = nums.reduce(/* COMPLETAR! */);
+
+
+// probar find, filter, map, reduce, every, some
+
+nums.forEach((num,index)=>{
+    console.log(num, index);
+});
+
+for(const num of nums)
+{
+    console.log(num);
+}
+
+const nums3 = [...nums, 10, 66];
+const persona = {
+    nombre: "pepe",
+    apellido: "juarez"
+}
+const serverId =  12344;
+const p = {...persona, serverId };
+
+const [x,y,z] = ["a", "b", "c"];
+const { nombre, apellido } = p;
+
+function crearSumador(x) { 
+    const sum = function(num) {
+        return x + num;
+    }
+    return sum;
+}
+const sum10 = crearSumador(10);
+sum10(5);
+
+
+// EJERCICIO 2
+function minLengh(minLength){
+    // TODO;
+}
+
+const minLength10 = minLengh(10);
+minLengh10("Hola") // false;
+minLengh10("Hola como estas") // true;
+
+
+``` 
