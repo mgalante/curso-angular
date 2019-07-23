@@ -68,7 +68,12 @@ filter(/* TODO */) {
 const result = filter(array, x => x === 4);
 // RESULT deberia dar [4, 4]
 
-
-
-
 ``` 
+
+
+## Ejercicio 4
+1. Generar un listado de productos (al menos 3) con los siguientes datos: 
+name, price, expirationDate, ingredients (array de strings)
+1. Duplicar el precio de todos los productos y pasar a mayusuculas el nombre
+1. Agregar un nuevo producto
+
