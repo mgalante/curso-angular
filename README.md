@@ -161,3 +161,28 @@ function repeatText(x:string, times: number):string{
     }
     return x;
 }
+```
+
+# Resumen clase 3
+
+Algular CLI provee una serie de comandos utiles para la gestion del proyecto:
+
+* `ng new NOMBRE-APP` Crear Aplicacion
+* `ng serve -o` Levantar servidor de desarrollo y abrir un browser
+* `ng serve --aot` Levantar servidor de desarrollo en modo AOT
+* `ng build --prod` Compilar para producción con todas las optimizaciones activadas.
+* `ng test` Inicia el unit test
+* `ng lint` Corre el linter de angular
+* `ng g m NOMBRE` Crear modulo
+* `ng g c NOMBRE` Crear componente, ejecutar dentro de la carpeta del modulo
+* `ng g s NOMBRE` Crear servicio, ejecutar dentro de la carpeta del modulo
+* `ng g p NOMBRE` Crear pipe
+
+## Ejercicio 1
+
+Crear un componente que permita ser usado de la siguiente manera:
+```html
+<app-badge type="ok">10</app-badge>
+<app-badge type="warning">10</app-badge>
+<app-badge type="error">10</app-badge>
+```
