@@ -238,7 +238,7 @@ Es otra sugar sintax para hacer two-way binding es decir input y output al mismo
 
 
 ### Para ir estudiando:
-https://rxjs.dev/guide/overview
-https://www.promisejs.org/
-https://angular.io/guide/architecture-services
+* https://rxjs.dev/guide/overview
+* https://www.promisejs.org/
+* https://angular.io/guide/architecture-services
 
