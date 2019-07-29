@@ -186,3 +186,28 @@ Crear un componente que permita ser usado de la siguiente manera:
 <app-badge type="warning">10</app-badge>
 <app-badge type="error">10</app-badge>
 ```
+# Resumen clase 4
+
+Las directivas estructurales se basan en una sugar sintax que por debejo utiliza ng-template.
+Eso significa que los componentes se instancian al momento de ser visibles y se destruyen al ocultarse.
+Las mas comunes son `*ngIf` y `*ngFor`
+Su sintaxis es:
+```html
+<ul>
+    <li *ngFor="let product of products">{{ product.name}}</li>
+</ul>
+```
+
+## Tarea:
+1. Realizar una interface de product en un archivo aparte
+1. Realizar un listado con al menos 3 product que implemente dicha interface
+1. Hacer un componente nuevo ProductItem para mostrar los datos de 1 producto
+1. Mostar con ngFor el listado
+1. Mostrar un input y tomar el valor ingresado con ngModel
+1. Armar un segundo listado que sea el resultado de filtrar el listado anterior
+1. En el html mostrar el "listado filtrado" en lugar del original
+1. Si el listado filtrado no tiene elemntos con `*ngIf` mostrar un carte que lo indique
+1. Agregarle al ProductItem un @Output selectProduct
+1. En el padre, escuchar ese evento y guardar en una variable cual es el product seleccionado
+1. El product seleccionado debe verse diferente
+
