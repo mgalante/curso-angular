@@ -188,6 +188,8 @@ Crear un componente que permita ser usado de la siguiente manera:
 ```
 # Resumen clase 4
 
+### Directicas estructurales
+
 Las directivas estructurales se basan en una sugar sintax que por debejo utiliza ng-template.
 Eso significa que los componentes se instancian al momento de ser visibles y se destruyen al ocultarse.
 Las mas comunes son `*ngIf` y `*ngFor`
@@ -197,6 +199,29 @@ Su sintaxis es:
     <li *ngFor="let product of products">{{ product.name}}</li>
 </ul>
 ```
+
+### Output
+Para comunicarse con su padre, un componente puede emitir eventos
+```html
+<app-item (selectItem)="onSelectItem($event)"></app-item>
+```
+en ItemComponent:
+```typescript
+@Output() selectItem: EventEmitter<Item> = new EventEmitter<Item>();
+```
+
+A tener en cuenta, el eventEmitter va SIN on. Y el handler deber ir con on.
+`$event` corresponde al valor emitdo
+
+
+### Banana in box
+Es otra sugar sintax para hacer two-way binding es decir input y output al mismo tiempo
+```html
+<p [(foo)]="bar"></p>
+<!-- equivale a -->
+<p [foo]="bar" (fooChange)="bar = $event"></p>
+```
+
 
 ## Tarea:
 1. Realizar una interface de product en un archivo aparte
@@ -210,4 +235,10 @@ Su sintaxis es:
 1. Agregarle al ProductItem un @Output selectProduct
 1. En el padre, escuchar ese evento y guardar en una variable cual es el product seleccionado
 1. El product seleccionado debe verse diferente
+
+
+### Para ir estudiando:
+https://rxjs.dev/guide/overview
+https://www.promisejs.org/
+https://angular.io/guide/architecture-services
 
