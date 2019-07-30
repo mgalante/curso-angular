@@ -242,3 +242,32 @@ Es otra sugar sintax para hacer two-way binding es decir input y output al mismo
 * https://www.promisejs.org/
 * https://angular.io/guide/architecture-services
 
+
+
+# Resumen Clase 5
+## Servicios
+Son clases procesan informacion y no deberían conocer a los componentes para lograr el maximo desacople con la capa de presentación.
+Se deben decorar con `@Injectable()` para que angular pueda tener acceso a su constructor e injectarle las dependecias que reciba.
+
+```typesecript
+@Injectable()
+export class ProductService {
+    construct(private httpClient: HttpClient) { }
+}
+```
+
+Importante, lo anterior es equivalente a:
+
+```typesecript
+@Injectable()
+export class ProductService {
+    private httpClient: HttpClient;
+    construct(httpClient: HttpClient) { 
+        this.httpClient = httpClient;
+    }
+}
+```
+Usar modificadores de acceso en el constructor es una SugarSyntax para declarar atributos y setearlos.
+
+
+<!-- Existe dos formas de cargar modulos, Eager Loading y Lazy Loding. -->
