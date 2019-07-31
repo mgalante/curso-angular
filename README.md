@@ -270,4 +270,40 @@ export class ProductService {
 Usar modificadores de acceso en el constructor es una SugarSyntax para declarar atributos y setearlos.
 
 
+
+## Promises 
+```javascript
+function getDataPromise(valor) {
+    return new Promise(function (fullfill, reject) {
+        setTimeout(function () {
+            fullfill(valor * 2);
+        }, 1000);
+    });
+}
+
+async function miProcedimiento() {
+    let  x = 10;
+    x = await getDataPromise(x);
+    console.log(x);
+    x = await getDataPromise(x);
+    console.log(x);
+    x = await getDataPromise(x);
+    console.log(x);
+    return x;
+}
+function miProcedimiento() {
+    let  x = 10;
+    return getDataPromise(x).then(function(x1){
+        console.log(x1);
+        return getDataPromise(x1) 
+    }).then(function(x2){
+        console.log(x2);
+        return getDataPromise(x2);
+    }).then(function(x2){
+        console.log(x2);
+        return getDataPromise(x2);
+    });
+}
+```
+
 <!-- Existe dos formas de cargar modulos, Eager Loading y Lazy Loding. -->
