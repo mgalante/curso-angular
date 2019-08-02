@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+
+
+<h1>{{ valor }}</h1>
+<h1>{{ count }}</h1>
+<h1>{{ (count$ | async) * 2 }}</h1>
+<h1>{{ (count$ | async) * 2 }}</h1>
+<h1>{{ (count$ | async) * 2 }}</h1>
+<h1>{{ (count$ | async) * 2 }}</h1>
+
+<button (click)="onClickEmitir()">Emitir</button>
+<button (click)="onClickSuscribir()">Suscribir</button>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<ul>
+  <li *ngFor="let product of products;let i = index;">
+
+    <input ngModel
+      (ngModelChange)="product.name = $event" />
+    <!-- <input [(ngModel)]="product.name" /> -->
+    {{product.name}}:
+    <app-button [price]="product.price"
+    (selectPrice)="onSelectPrice($event, product)"></app-button>
+  </li>
+</ul>
+
+{{ selectedPrice }}
+
+

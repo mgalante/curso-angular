@@ -1,0 +1,10 @@
+<p>
+{{ params | json }}
+
+{{ params$ | async | json }}
+  content works!
+</p>
+
+<a [routerLink]="['/content/10']" routerLinkActive="router-link-active">10</a>
+<a [routerLink]="['/content/11']" routerLinkActive="router-link-active">11</a>
+<a [routerLink]="['/content/12']" routerLinkActive="router-link-active">12</a>
