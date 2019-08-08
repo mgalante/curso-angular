@@ -297,7 +297,10 @@ export class ValidatorsCustom {
    ```typescript
     this.productForm.get('name').clearValidators();
    ```
-   
+   ### Obtener los errores de validaciones de un FormControl
+   ```typescript
+     this.productForm.get('name').errors
+   ```
    
    
   
