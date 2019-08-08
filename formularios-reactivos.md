@@ -93,18 +93,13 @@ export class EditProductComponent implements OnInit {
     console.log(this.productForm.value);
     // Guardar cambios del producto usando un Service(productService)
   }
-
-
+  
   get name() {
     return this.productForm.get('name');
   }
 
   get description() {
     return this.productForm.get('description');
-  }
-
-  get trademark() {
-    return this.productForm.get('trademark');
   }
 
   get price() {
@@ -142,13 +137,11 @@ export class AppModule { }
   
   
       this.productForm = this.formBuilder.group({
-      id: [this.product.id],
       name: [this.product.name, [Validators.required, Validators.minLength(4)]],
       description: [
         this.product.description,
         [Validators.required, Validators.maxLength(50)]
       ],
-      trademark: [this.product.trademark, [Validators.required]],
       price: [this.product.price, [Validators.required, Validators.min(0)]],
       year: [
         this.product.year,
@@ -158,25 +151,21 @@ export class AppModule { }
           /*validador custom*/
           ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
         ]
-      ],
-      photo: [this.product.photo]
+      ]
     });
 ```
   ####    Opcion 2) mediante contructor FormGroup
  
  ```typescript
  this.productForm = new FormGroup({
-      id: new FormControl( this.product.id),
       name: new FormControl( this.product.name, [Validators.required, Validators.minLength(4)]),
       description: new FormControl( this.product.description, [Validators.required, Validators.maxLength(50)]),
-      trademark: new FormControl( this.product.trademark, [Validators.required]),
       price: new FormControl(this.product.price, [Validators.required, Validators.min(0)]),
       year:  new FormControl( this.product.year,[ Validators.required, Validators.min(1900),
           /*validador custom*/
           ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
         ]
-      ),
-      photo: new FormControl( [this.product.photo])
+      )
     });
  ```
  
@@ -235,7 +224,7 @@ export class ValidatorsCustom {
   ### Obtener el object model de un FormGroup
   
  ```typescript
-   this.productForm.value; // retorna {{ id: 1, name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', trademark: 'Coca Cola', price: 35.75, year: 1900, photo: '../../../assets/images/coca.jpg'}} 
+   this.productForm.value; // retorna {{ name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', price: 35.75, year: 1900}} 
   ```
   
   
@@ -243,12 +232,10 @@ export class ValidatorsCustom {
   ### Setear object model a un FormGroup
    ```typescript
   this.productForm = this.formBuilder.group({
-      id: [null],
       name: [null, [Validators.required, Validators.minLength(4)]],
       description: [null,
         [Validators.required, Validators.maxLength(50)]
       ],
-      trademark: [null, [Validators.required]],
       price: [null, [Validators.required, Validators.min(0)]],
       year: [null,
         [
@@ -256,21 +243,17 @@ export class ValidatorsCustom {
           Validators.min(1900),
           ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
         ]
-      ],
-      photo: [null]
+      ]
     });
  ```
  ##### por setValue() 
  El objeto tiene que tener todas los
  ```typescript
  this.productForm.setValue( {
-    id: 1,
     name: 'Gaseosa Coca Cola',
     description: 'Refrescante y azucarada',
-    trademark: 'Coca Cola',
     price: 35.75,
-    year: 1900,
-    photo: '../../../assets/images/coca.jpg'
+    year: 1900
   })
   
   
