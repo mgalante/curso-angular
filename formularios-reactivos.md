@@ -282,7 +282,7 @@ export class ValidatorsCustom {
    ### Escuchar cambios de un FormControl
    
    ```typescript
-    this.name.valueChanges.subscribe(nameChanged => console.log(nameChanged));
+    this.productForm.get('name').valueChanges.subscribe(nameChanged => console.log(nameChanged));
    ```
   
    
