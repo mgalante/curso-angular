@@ -249,10 +249,43 @@ export class ValidatorsCustom {
  
   ### Obtener el object model de un FormGroup
   
-   ```typescript
+ ```typescript
    this.productForm.value; // retorna {{ id: 1, name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', trademark: 'Coca Cola', price: 35.75, year: 1900, photo: '../../../assets/images/coca.jpg'}} 
-   
+  
+  ```
+  ### Setear object model a un FormGroup
+   ```typescript
+  this.productForm = this.formBuilder.group({
+      id: [this.product.id],
+      name: [this.product.name, [Validators.required, Validators.minLength(4)]],
+      description: [
+        this.product.description,
+        [Validators.required, Validators.maxLength(50)]
+      ],
+      trademark: [this.product.trademark, [Validators.required]],
+      price: [this.product.price, [Validators.required, Validators.min(0)]],
+      year: [
+        this.product.year,
+        [
+          Validators.required,
+          Validators.min(1900),
+          ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
+        ]
+      ],
+      photo: [this.product.photo]
+    });
     ```
+ #### Por setValue()
+ 
+ this.productForm.setValue( {
+    id: 1,
+    name: 'Gaseosa Coca Cola',
+    description: 'Refrescante y azucarada',
+    trademark: 'Coca Cola',
+    price: 35.75,
+    year: 1900,
+    photo: '../../../assets/images/coca.jpg'
+  })
     
   
 
