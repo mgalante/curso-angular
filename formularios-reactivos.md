@@ -136,12 +136,11 @@ export class EditProductComponent implements OnInit {
 
 ```typescript
 
-
-productForm: FormGroup;
-constructor(private formBuilder: FormBuilder) {}
+      productForm: FormGroup;
+      constructor(private formBuilder: FormBuilder) {}
   
   
-this.productForm = this.formBuilder.group({
+      this.productForm = this.formBuilder.group({
       id: [this.product.id],
       name: [this.product.name, [Validators.required, Validators.minLength(4)]],
       description: [
@@ -161,9 +160,24 @@ this.productForm = this.formBuilder.group({
       ],
       photo: [this.product.photo]
     });
-    
-    ```
-    #### Opcion 2) mediante contructor FormGroup
+```
+  ####    Opcion 2) mediante contructor FormGroup
+ 
+ ```typescript
+ this.productForm = new FormGroup({
+      id: new FormControl( this.product.id),
+      name: new FormControl( this.product.name, [Validators.required, Validators.minLength(4)]),
+      description: new FormControl( this.product.description, [Validators.required, Validators.maxLength(50)]),
+      trademark: new FormControl( this.product.trademark, [Validators.required]),
+      price: new FormControl(this.product.price, [Validators.required, Validators.min(0)]),
+      year:  new FormControl( this.product.year,[ Validators.required, Validators.min(1900),
+          /*validador custom*/
+          ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
+        ]
+      ),
+      photo: new FormControl( [this.product.photo])
+    });
+ ```
    
 
 
