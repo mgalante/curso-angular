@@ -5,8 +5,10 @@ Los Formularios Reactivos nos proveen de una manera de manejar las entradas de d
 
 Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a mantener la integridad del modelo entre cada cambio. Los formularios reactivos están basados en flujos de datos de tipo Observable, donde cada entrada y cada valor toman la forma de un flujo de datos que puede ser accedido de manera asíncrona.
 
-### Ejemplo de un formulario reactivo:
+Los Formularios Reactivos son mas escalables, reusables y fáciles de probar. Cada Elemento de la vista está directamente enlazado al modelo mediante una instancia de FormControl. Las actualizaciones de la vista al modelo y del modelo a la vista son síncronas y no dependen de la representación en la Interfaz de Usuario del cliente.
 
+
+### Ejemplo de un formulario reactivo:
 #### product.ts
 ```typescript
 export interface Product {
@@ -16,7 +18,6 @@ export interface Product {
     price: number;
 }
 ```
-
 #### edit-product.component.html
 ```html
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
@@ -45,7 +46,6 @@ export interface Product {
   
   </form>
 ```
-
 #### edit-product.component.ts
 ```typescript
 import { Component, OnInit, DoCheck } from '@angular/core';
@@ -111,8 +111,8 @@ export class EditProductComponent implements OnInit {
 }
 ```
 
-### Configurar app.module.ts
 
+### Configurar app.module.ts
 ```typescript
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -125,6 +125,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AppModule { }
 
 ```
+
 
 ### Construir el formulario reactivo
 #### Opcion 1) mediante FormBuilder
@@ -168,6 +169,7 @@ export class AppModule { }
     });
  ```
  
+ 
 ### Validadores para los FormControl
 #### Validators
  ```typescript
@@ -184,7 +186,6 @@ Validators.maxLength(num);
 Validators.pattern(patternString);
 /*  -----------------------------------   */
  ```
- 
  #### Validator Custom
  Ejemplo
  validators-custom.ts
