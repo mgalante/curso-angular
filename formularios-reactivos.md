@@ -270,6 +270,11 @@ export class ValidatorsCustom {
    
    ### Modificar el estado de un FormControl
    ```typescript
+    // PRISTINE: el valor del control no ha sido cambiado por el usuario
+    // DIRTY: el usuario ha modificado el valor del control.
+    // TOUCHED: el usuario ha tocado el control lanzando un evento blur al salir.
+    // UNTOUCHED: el usuario no ha tocado y salido del control lanzando ningún evento blur.
+    
     const control = this.productForm.get('name');
    
     control.markAsTouched();
