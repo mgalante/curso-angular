@@ -85,9 +85,7 @@ export class EditProductComponent implements OnInit {
       price: [ this.product.price, [Validators.required, Validators.min(0)] ],
       year: [ this.product.year, [ Validators.required, ValidatorsCustom.betweenYear(1900, currentYear)] ]
     });
-
-    // Escuchar cambios del FormControl 'name'
-    this.name.valueChanges.subscribe(nameChanged => console.log(nameChanged));
+   
   }
 
   onSubmit() {
@@ -267,11 +265,10 @@ export class ValidatorsCustom {
   ```
   ### Acceder a un FormControl de un Formulario(FormGroup)
    ```typescript
-   // ejemplo
    this.productForm.get('name');
    
    ```
-   #### Modificar el estado de un FormControl
+   ### Modificar el estado de un FormControl
    ```typescript
     const control = this.productForm.get('name');
    
@@ -279,9 +276,15 @@ export class ValidatorsCustom {
     control.markAsUntouched();
     control.markAsDirty();
     control.markAsPristine();
-    
-    
+ 
    ```
+   
+   ### Escuchar cambios de un FormControl
+   
+   ```typescript
+    this.name.valueChanges.subscribe(nameChanged => console.log(nameChanged));
+   ```
+  
    
   
    
