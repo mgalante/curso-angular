@@ -7,6 +7,16 @@ Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a
 
 ### Ejemplo de un formulario reactivo:
 
+#### product.ts
+```typescript
+export interface Product {
+    name: string;
+    description: string;
+    year: number;
+    price: number;
+}
+```
+
 #### edit-product.component.html
 ```html
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
@@ -20,15 +30,16 @@ Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a
     <textarea id="description" type="textarea" formControlName="description" rows="3" cols="20"></textarea>
     <app-messages-error [input]="description"></app-messages-error>
     <br/>
+  
+    <label for="year"> Año: </label>
+    <input id="year" type="number" formControlName="year">
+    <app-messages-error [input]="year"></app-messages-error>
+    <br/>
     
     <label for="price"> Precio: </label>
     <input id="price" type="number" formControlName="price">
     <app-messages-error [input]="price"></app-messages-error>
     <br/>
-    
-    <label for="year"> Año: </label>
-    <input id="year" type="number" formControlName="year">
-    <app-messages-error [input]="year"></app-messages-error>
 
     <button type="submit" [disabled]="productForm.invalid" >Submit</button>
   
@@ -53,6 +64,7 @@ export class EditProductComponent implements OnInit {
   product: Product = {
     name: 'Gaseosa Coca Cola',
     description: 'Refrescante y azucarada',
+    year: 1900,
     price: 35.75
   };
   
