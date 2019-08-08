@@ -131,6 +131,22 @@ export class EditProductComponent implements OnInit {
   }
 }
 ```
+
+### Configurar app.module.ts
+
+```typescript
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    // other imports ...
+    ReactiveFormsModule
+  ],
+})
+export class AppModule { }
+
+```
+
 ### Construir el formulario reactivo
 #### Opcion 1) mediante FormBuilder
 
