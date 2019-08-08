@@ -247,6 +247,15 @@ export class ValidatorsCustom {
  
   ```
  
+  ### Obtener el object model de un FormGroup
+  
+   ```typescript
+   this.productForm.value; // retorna {{ id: 1, name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', trademark: 'Coca Cola', price: 35.75, year: 1900, photo: '../../../assets/images/coca.jpg'}} 
+   
+    ```
+    
+  
+
  
 
 
