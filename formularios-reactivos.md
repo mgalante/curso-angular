@@ -74,6 +74,7 @@ export class EditProductComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const currentYear: number = (new Date()).getFullYear();
 
     // Se deberia obtener el producto mediante un Service(productService)
 
@@ -82,7 +83,7 @@ export class EditProductComponent implements OnInit {
       name: [ this.product.name, [Validators.required, Validators.minLength(4)] ],
       description: [ this.product.description, [Validators.required, Validators.maxLength(50)] ],
       price: [ this.product.price, [Validators.required, Validators.min(0)] ],
-      year: [ this.product.year, [ Validators.required, /*validador custom*/ ValidatorsCustom.betweenYear(1900, new Date().getFullYear())] ]
+      year: [ this.product.year, [ Validators.required, ValidatorsCustom.betweenYear(1900, currentYear)] ]
     });
 
     // Escuchar cambios del FormControl 'name'
