@@ -233,7 +233,7 @@ export class ValidatorsCustom {
     };
   }
 }
- ```typescript
+ ```
  
  ```typescript
  import { ValidatorsCustom } from 'src/app/validators/validators-custom';
