@@ -233,15 +233,14 @@ export class ValidatorsCustom {
   ### Setear object model a un FormGroup
    ```typescript
   this.productForm = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.minLength(4)]],
-      description: [null,
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      description: ['',
         [Validators.required, Validators.maxLength(50)]
       ],
       price: [null, [Validators.required, Validators.min(0)]],
       year: [null,
         [
           Validators.required,
-          Validators.min(1900),
           ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
         ]
       ]
