@@ -186,10 +186,8 @@ Validators.pattern(patternString);
  ```
  
  #### Validator Custom
- ##### Ejemplo
- 
+ Ejemplo
  validators-custom.ts
- 
 ```typescript
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 
@@ -220,13 +218,12 @@ export class ValidatorsCustom {
  
   ```
  
+ 
   ### Obtener el object model de un FormGroup
-  
  ```typescript
    this.productForm.value; // retorna {{ name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', price: 35.75, year: 1900}} 
   ```
-  
-  
+ 
   
   ### Setear object model a un FormGroup
    ```typescript
@@ -253,8 +250,7 @@ export class ValidatorsCustom {
     price: 35.75,
     year: 1900
   });
-  ```
-    
+  ``` 
  ##### por patchValue() 
  Permite hacer actualizaciones parciales de los valores del formulario
  ```typescript
@@ -263,11 +259,15 @@ export class ValidatorsCustom {
     description: 'Refrescante y azucarada'
   })
   ```
+  
+  
   ### Acceder a un FormControl de un Formulario(FormGroup)
    ```typescript
    this.productForm.get('name');
    
    ```
+   
+   
    ### Modificar el estado de un FormControl
    ```typescript
     const control = this.productForm.get('name');
@@ -279,11 +279,27 @@ export class ValidatorsCustom {
  
    ```
    
-   ### Escuchar cambios de un FormControl
    
+   ### Escuchar cambios de un FormControl
    ```typescript
     this.productForm.get('name').valueChanges.subscribe(nameChanged => console.log(nameChanged));
    ```
+   
+   
+   ### Setear validators a un FormControl
+   ```typescript
+    const validators: ValidatorFn[] = [];
+    this.productForm.get('name').setValidators(validators);
+   ```
+   
+   
+   ### Borrar validators de un FormControl 
+    ```typescript
+    this.productForm.get('name').clearValidators();
+   ```
+   
+   
+   
   
    
   
