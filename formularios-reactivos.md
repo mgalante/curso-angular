@@ -194,7 +194,23 @@ export class AppModule { }
       photo: new FormControl( [this.product.photo])
     });
  ```
-   
+ 
+### Validadores para los FormControl
+#### Validators
+ ```typescript
+import {Validators} from '@angular/forms';
+
+num: number;
+patternString: string;
+/* algunos validators */
+Validators.required;
+Validators.min(num);
+Validators.min(num);
+Validators.minLength(num);
+Validators.maxLength(num);
+Validators.pattern(patternString);
+/*                  */
+ ```
 
 
 
