@@ -202,14 +202,14 @@ import {Validators} from '@angular/forms';
 
 num: number;
 patternString: string;
-/* algunos validators */
+/* ------ algunos validators ----------*/
 Validators.required;
 Validators.min(num);
 Validators.min(num);
 Validators.minLength(num);
 Validators.maxLength(num);
 Validators.pattern(patternString);
-/*                  */
+/*  -----------------------------------   */
  ```
 
 
