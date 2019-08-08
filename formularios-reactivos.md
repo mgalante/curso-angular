@@ -131,3 +131,38 @@ export class EditProductComponent implements OnInit {
   }
 }
 ```
+### Construir el formulario reactivo
+#### Opcion 1) mediante FormBuilder
+
+```typescript
+
+  constructor(private formBuilder: FormBuilder) {}
+  
+  
+this.productForm = this.formBuilder.group({
+      id: [this.product.id],
+      name: [this.product.name, [Validators.required, Validators.minLength(4)]],
+      description: [
+        this.product.description,
+        [Validators.required, Validators.maxLength(50)]
+      ],
+      trademark: [this.product.trademark, [Validators.required]],
+      price: [this.product.price, [Validators.required, Validators.min(0)]],
+      year: [
+        this.product.year,
+        [
+          Validators.required,
+          Validators.min(1900),
+          /*validador custom*/
+          ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
+        ]
+      ],
+      photo: [this.product.photo]
+    });
+    
+    ```
+    #### Opcion 2) mediante contructor FormGroup
+   
+
+
+
