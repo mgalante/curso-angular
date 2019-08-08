@@ -10,34 +10,25 @@ Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a
 #### edit-product.component.html
 ```html
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <input type="hidden" formControlName="id">
   
     <label for="name"> Nombre: </label>
     <input id="name" type="text" formControlName="name">
     <app-messages-error [input]="name"></app-messages-error>
-      <br/>    
+    <br/>    
   
     <label for="description"> Descripcion: </label>
     <textarea id="description" type="textarea" formControlName="description" rows="3" cols="20"></textarea>
     <app-messages-error [input]="description"></app-messages-error>
-      <br/>
-    <label for="trademark"> Marca: </label>
-    <input id="trademark" type="text" formControlName="trademark">
-    <app-messages-error [input]="trademark"></app-messages-error>
-      <br/>
-
-    <label for="year"> Año: </label>
-    <input id="year" type="number" formControlName="year">
-    <app-messages-error [input]="year"></app-messages-error>
-    
     <br/>
+    
     <label for="price"> Precio: </label>
     <input id="price" type="number" formControlName="price">
     <app-messages-error [input]="price"></app-messages-error>
-      <br/>
-      
-    <input type="hidden" formControlName="photo">
-
+    <br/>
+    
+    <label for="year"> Año: </label>
+    <input id="year" type="number" formControlName="year">
+    <app-messages-error [input]="year"></app-messages-error>
 
     <button type="submit" [disabled]="productForm.invalid" >Submit</button>
   
@@ -60,14 +51,11 @@ import { ProductService } from 'src/app/services/product.service';
 export class EditProductComponent implements OnInit {
 
   product: Product = {
-    id: 1,
     name: 'Gaseosa Coca Cola',
     description: 'Refrescante y azucarada',
-    trademark: 'Coca Cola',
-    price: 35.75,
-    year: 1900,
-    photo: '../../../assets/images/coca.jpg'
+    price: 35.75
   };
+  
   productForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder/* , productService: ProductService */
@@ -80,24 +68,20 @@ export class EditProductComponent implements OnInit {
     /* Construir el FormGroup(productForm), se usa el FormBuilder
       para facilitar la construccion del formulario(setear valores y validadores) */
     this.productForm = this.formBuilder.group({
-      id: [this.product.id],
       name: [this.product.name, [Validators.required, Validators.minLength(4)]],
       description: [
         this.product.description,
         [Validators.required, Validators.maxLength(50)]
       ],
-      trademark: [this.product.trademark, [Validators.required]],
       price: [this.product.price, [Validators.required, Validators.min(0)]],
       year: [
         this.product.year,
         [
           Validators.required,
-          Validators.min(1900),
           /*validador custom*/
           ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
         ]
-      ],
-      photo: [this.product.photo]
+      ]
     });
 
     // Escuchar cambios del FormControl 'name'
@@ -276,7 +260,7 @@ export class ValidatorsCustom {
     });
  ```
  ##### por setValue() 
- 
+ El objeto tiene que tener todas los
  ```typescript
  this.productForm.setValue( {
     id: 1,
@@ -287,6 +271,15 @@ export class ValidatorsCustom {
     year: 1900,
     photo: '../../../assets/images/coca.jpg'
   })
+  
+  
+  this.productForm.get('name').setValue("Gaseosa Coca-Cola 1L");
+  this.productForm.get('name').setPristine();
+  this.productForm.get('name').setUntou
+  
+  this.productForm.reset();
+  
+  
   ```
     
  ##### por patchValue() 
