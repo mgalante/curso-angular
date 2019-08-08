@@ -289,7 +289,15 @@ export class ValidatorsCustom {
   })
   ```
     
-  
+ ##### por patchValue() 
+ Permite hacer actualizaciones parciales de los valores del formulario
+ ```typescript
+ this.productForm.patchValue( {
+    name: 'Gaseosa Coca Cola',
+    description: 'Refrescante y azucarada'
+  })
+  ```
+    
 
  
 
