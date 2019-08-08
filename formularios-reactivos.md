@@ -247,7 +247,7 @@ export class ValidatorsCustom {
     });
  ```
  ##### por setValue() 
- El objeto tiene que tener todas los
+ El objeto tiene que tener todas las properties del formulario
  ```typescript
  this.productForm.setValue( {
     name: 'Gaseosa Coca Cola',
