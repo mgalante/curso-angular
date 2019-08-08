@@ -211,6 +211,44 @@ Validators.maxLength(num);
 Validators.pattern(patternString);
 /*  -----------------------------------   */
  ```
+ 
+ #### Validator Custom
+ ##### Ejemplo
+ 
+ validators-custom.ts
+ 
+```typescript
+import { ValidatorFn, AbstractControl } from '@angular/forms';
+
+export class ValidatorsCustom {
+
+  static betweenYear(yearA: number, yearB: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const year: number = control.value;
+      if (year >= yearA && year <= yearB) {
+        return null;
+      } else {
+        return { betweenYear: { yearA: yearA, yearB: yearB } };
+      }
+    };
+  }
+}
+ ```typescript
+ 
+ ```typescript
+ import { ValidatorsCustom } from 'src/app/validators/validators-custom';
+ ....
+ 
+ yearFrom: number;
+ yearTo: number;
+ /* validator custom */
+  ValidatorsCustom.betweenYear(yearFrom, yearTo)
+ /*                  */ 
+ 
+  ```
+ 
+ 
+
 
 
 
