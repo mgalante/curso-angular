@@ -294,7 +294,7 @@ export class ValidatorsCustom {
    
    
    ### Borrar validators de un FormControl 
-    ```typescript
+   ```typescript
     this.productForm.get('name').clearValidators();
    ```
    
