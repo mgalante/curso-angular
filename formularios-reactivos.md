@@ -136,7 +136,9 @@ export class EditProductComponent implements OnInit {
 
 ```typescript
 
-  constructor(private formBuilder: FormBuilder) {}
+
+productForm: FormGroup;
+constructor(private formBuilder: FormBuilder) {}
   
   
 this.productForm = this.formBuilder.group({
