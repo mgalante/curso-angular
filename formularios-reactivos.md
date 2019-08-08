@@ -272,7 +272,7 @@ export class ValidatorsCustom {
    
    ```
    #### Modificar el estado de un FormControl
-    ```typescript
+   ```typescript
     const control = this.productForm.get('name');
    
     control.markAsTouched();
@@ -281,7 +281,7 @@ export class ValidatorsCustom {
     control.markAsPristine();
     
     
-     ```
+   ```
    
   
    
