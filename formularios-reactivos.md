@@ -269,6 +269,17 @@ export class ValidatorsCustom {
    ```
    
    
+   ### Acceder al valor de un FormControl
+   ```typescript
+   const name:string = this.productForm.get('name').value;
+   ```
+   
+   
+   ### Setear el valor de un FormControl
+   ```typescript
+   this.productForm.get('name').setValue('pepito');
+   ```
+   
    ### Modificar el estado de un FormControl
    ```typescript
     // PRISTINE: el valor del control no ha sido cambiado por el usuario
