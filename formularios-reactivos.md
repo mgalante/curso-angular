@@ -254,16 +254,7 @@ export class ValidatorsCustom {
     description: 'Refrescante y azucarada',
     price: 35.75,
     year: 1900
-  })
-  
-  
-  this.productForm.get('name').setValue("Gaseosa Coca-Cola 1L");
-  this.productForm.get('name').setPristine();
-  this.productForm.get('name').setUntou
-  
-  this.productForm.reset();
-  
-  
+  });
   ```
     
  ##### por patchValue() 
@@ -274,6 +265,27 @@ export class ValidatorsCustom {
     description: 'Refrescante y azucarada'
   })
   ```
+  ### Acceder a un FormControl de un Formulario(FormGroup)
+   ```typescript
+   // ejemplo
+   this.productForm.get('name');
+   
+   ```
+   #### Modificar el estado de un FormControl
+    ```typescript
+    const control = this.productForm.get('name');
+   
+    control.markAsTouched();
+    control.markAsUntouched();
+    control.markAsDirty();
+    control.markAsPristine();
+    
+    
+     ```
+   
+  
+   
+  
     
 
  
