@@ -77,23 +77,12 @@ export class EditProductComponent implements OnInit {
 
     // Se deberia obtener el producto mediante un Service(productService)
 
-    /* Construir el FormGroup(productForm), se usa el FormBuilder
-      para facilitar la construccion del formulario(setear valores y validadores) */
+    /* Construir el FormGroup(productForm), se usa el FormBuilder para facilitar la construccion del formulario(setear valores y validadores) */
     this.productForm = this.formBuilder.group({
-      name: [this.product.name, [Validators.required, Validators.minLength(4)]],
-      description: [
-        this.product.description,
-        [Validators.required, Validators.maxLength(50)]
-      ],
-      price: [this.product.price, [Validators.required, Validators.min(0)]],
-      year: [
-        this.product.year,
-        [
-          Validators.required,
-          /*validador custom*/
-          ValidatorsCustom.betweenYear(1900, new Date().getFullYear())
-        ]
-      ]
+      name: [ this.product.name, [Validators.required, Validators.minLength(4)] ],
+      description: [ this.product.description, [Validators.required, Validators.maxLength(50)] ],
+      price: [ this.product.price, [Validators.required, Validators.min(0)] ],
+      year: [ this.product.year, [ Validators.required, /*validador custom*/ ValidatorsCustom.betweenYear(1900, new Date().getFullYear())] ]
     });
 
     // Escuchar cambios del FormControl 'name'
