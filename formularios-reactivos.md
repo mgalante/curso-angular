@@ -5,8 +5,9 @@ Los Formularios Reactivos nos proveen de una manera de manejar las entradas de d
 
 Cada cambio que ocurre en el formulario devuelve un nuevo estado, lo que ayuda a mantener la integridad del modelo entre cada cambio. Los formularios reactivos están basados en flujos de datos de tipo Observable, donde cada entrada y cada valor toman la forma de un flujo de datos que puede ser accedido de manera asíncrona.
 
-### Ejemplo formulario reactivo:
+### Ejemplo de un formulario reactivo:
 
+#### edit-product.component.html
 ```html
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <input type="hidden" formControlName="id">
