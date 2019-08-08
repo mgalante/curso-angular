@@ -252,6 +252,9 @@ export class ValidatorsCustom {
  ```typescript
    this.productForm.value; // retorna {{ id: 1, name: 'Gaseosa Coca Cola', description: 'Refrescante y azucarada', trademark: 'Coca Cola', price: 35.75, year: 1900, photo: '../../../assets/images/coca.jpg'}} 
   ```
+  
+  
+  
   ### Setear object model a un FormGroup
    ```typescript
   this.productForm = this.formBuilder.group({
@@ -272,8 +275,8 @@ export class ValidatorsCustom {
       photo: [null]
     });
  ```
- ####
-  
+ ##### por setValue() 
+ 
  ```typescript
  this.productForm.setValue( {
     id: 1,
