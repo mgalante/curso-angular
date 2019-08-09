@@ -218,7 +218,13 @@ export class ValidatorsCustom {
  /*                  */ 
  
   ```
+ ### Properties utiles de FormGroup
+ ```typescript
  
+    this.productForm.valid;
+   
+    this.productForm.invalid;
+ ```
  
   ### Obtener el object model de un FormGroup
  ```typescript
